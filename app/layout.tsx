@@ -4,7 +4,8 @@ import { Navbar} from "@/app/components/navbar/Navbar";
 import { ClientOnly } from "@/app/components/ClientOnly";
 // import { Modal } from "./components/modals/Modal";
 import React from "react";
-import {RegisterModal} from "@/app/components/modals/RegisterModal";
+import { RegisterModal } from "@/app/components/modals/RegisterModal";
+import { TosterProvider } from "@/app/providers/TosterProvider";
 
 
 export const metadata = {
@@ -23,6 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <ClientOnly>
+          <TosterProvider/>
           <RegisterModal/>
           {/*<Modal*/}
           {/*    actionLabel='Submit'*/}
