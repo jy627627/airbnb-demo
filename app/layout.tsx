@@ -5,7 +5,9 @@ import { ClientOnly } from "@/app/components/ClientOnly";
 // import { Modal } from "./components/modals/Modal";
 import React from "react";
 import { RegisterModal } from "@/app/components/modals/RegisterModal";
+import { LoginModal } from '@/app/components/modals/LoginModal'
 import { TosterProvider } from "@/app/providers/TosterProvider";
+import getCurrentUser from "@/app/actions/getCurrentUser";
 
 
 export const metadata = {
@@ -15,22 +17,27 @@ export const metadata = {
 
 const font = Nunito({ subsets: ['latin'] })
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const currentUser = await getCurrentUser()
+
   return (
     <html lang="en">
       <body className={font.className}>
         <ClientOnly>
           <TosterProvider/>
           <RegisterModal/>
+          <LoginModal/>
           {/*<Modal*/}
           {/*    actionLabel='Submit'*/}
           {/*    title={'hello'}*/}
           {/*    isOpen/>*/}
-          <Navbar/>
+          <Navbar
+              currentUser={ currentUser }
+          />
         </ClientOnly>
         {children}
       </body>
