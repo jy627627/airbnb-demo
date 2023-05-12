@@ -1,19 +1,22 @@
 'use client'
 
-import {SafeUser} from "@/app/types";
+
+
+
+import {AiOutlineMenu} from "react-icons/ai"
+import { Avatar } from '../Avatar'
+import { MenuItem } from '../navbar/MenuItem'
+import React, {useCallback, useState} from "react"
+import {useRegisterModal} from "@/app/hook/useRegisterModal"
+import {useLoginModal} from "@/app/hook/useLoginModal"
+import { signOut } from 'next-auth/react'
+import { SafeUser } from "@/app/types";
+
 
 interface UserMenuProps {
     currentUser?: SafeUser | null
 }
 
-
-import {AiOutlineMenu} from "react-icons/ai";
-import { Avatar } from '../Avatar'
-import { MenuItem } from '../navbar/MenuItem'
-import React, {useCallback, useState} from "react";
-import {useRegisterModal} from "@/app/hook/useRegisterModal";
-import {useLoginModal} from "@/app/hook/useLoginModal";
-import { signOut } from 'next-auth/react';
 
 export const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
 
@@ -81,7 +84,9 @@ export const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                             md:block
                         "
                     >
-                        <Avatar />
+                        <Avatar
+                            src={ currentUser?.image }
+                        />
                     </div>
                 </div>
             </div>

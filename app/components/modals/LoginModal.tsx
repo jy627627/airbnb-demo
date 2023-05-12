@@ -1,7 +1,6 @@
 'use client'
 
 import { signIn } from "next-auth/react";
-import axios from 'axios'
 import { AiFillGithub } from "react-icons/ai"
 import { FcGoogle } from "react-icons/fc"
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
@@ -12,15 +11,13 @@ import { Modal } from "./Modal"
 import { Heading } from '../Heading'
 import { Input } from "@/app/components/inputs/Input";
 import toast from "react-hot-toast";
-import {Button} from "@/app/components/Button";
-import {callback} from "next-auth/core/routes";
-import {router} from "next/client";
-import {useRouter} from "next/navigation";
+import { Button } from "@/app/components/Button";
+import { useRouter } from "next/navigation";
 
 export const LoginModal = () => {
     const router = useRouter()
-    const registerModal = useRegisterModal()
     const loginModal = useLoginModal()
+    const registerModal = useRegisterModal()
     const [isLoading, setIsLoading] = useState(false)
 
     const {
@@ -37,27 +34,29 @@ export const LoginModal = () => {
     })
 
 
-    const onSubmit:SubmitHandler<FieldValues> = (data) => {
+    const onSubmit: SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true)
+
+        console.log(data,'data')
 
         signIn('credentials', {
             ...data,
             redirect: false,
         })
-        .then((callback) => {
-            setIsLoading(false)
+            .then((callback) => {
 
-            if(callback?.ok) {
-                toast.success('Logged in')
-                router.refresh()
-                loginModal.onClose()
-            }
+                setIsLoading(false)
 
-            if(callback?.error) {
-                toast.error(callback.error)
-            }
+                if (callback?.ok) {
+                    toast.success('Logged in')
+                    router.refresh()
+                    loginModal.onClose()
+                }
 
-        })
+                if (callback?.error) {
+                    toast.error(callback.error)
+                }
+            })
     }
 
     const bodyContent = (
@@ -107,13 +106,13 @@ export const LoginModal = () => {
                 outline
                 label="Continue with Google"
                 icon={ FcGoogle }
-                onClick={() => {}}
+                onClick={() => signIn('google')}
             />
             <Button
                 outline
                 label="Continue with Github"
                 icon={ AiFillGithub }
-                onClick={() => {}}
+                onClick={() => signIn('github')}
             />
             <div
                 className="
