@@ -6,6 +6,7 @@ import { ClientOnly } from "@/app/components/ClientOnly";
 import React from "react";
 import { RegisterModal } from "@/app/components/modals/RegisterModal";
 import { LoginModal } from '@/app/components/modals/LoginModal'
+import { RentModal } from "@/app/components/modals/RentModal";
 import { TosterProvider } from "@/app/providers/TosterProvider";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 
@@ -31,6 +32,7 @@ export default async function RootLayout({
           <TosterProvider/>
           <RegisterModal/>
           <LoginModal/>
+          <RentModal/>
           {/*<Modal*/}
           {/*    actionLabel='Submit'*/}
           {/*    title={'hello'}*/}

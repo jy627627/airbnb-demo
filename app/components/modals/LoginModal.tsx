@@ -4,9 +4,9 @@ import { signIn } from "next-auth/react";
 import { AiFillGithub } from "react-icons/ai"
 import { FcGoogle } from "react-icons/fc"
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
-import { useRegisterModal } from "@/app/hook/useRegisterModal";
-import { useLoginModal } from "@/app/hook/useLoginModal";
-import {useState} from "react";
+import { useRegisterModal } from "@/app/hooks/useRegisterModal";
+import { useLoginModal } from "@/app/hooks/useLoginModal";
+import {useCallback, useState} from "react";
 import { Modal } from "./Modal"
 import { Heading } from '../Heading'
 import { Input } from "@/app/components/inputs/Input";
@@ -37,8 +37,6 @@ export const LoginModal = () => {
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true)
 
-        console.log(data,'data')
-
         signIn('credentials', {
             ...data,
             redirect: false,
@@ -58,6 +56,11 @@ export const LoginModal = () => {
                 }
             })
     }
+
+    const toggle = useCallback(() => {
+        loginModal.onClose()
+        registerModal.onOpen()
+    },[loginModal, registerModal])
 
     const bodyContent = (
         <div
@@ -132,15 +135,15 @@ export const LoginModal = () => {
                         gap-2
                     "
                 >
-                    <div>Already have an account?</div>
+                    <div>First time using Airbnb?</div>
                     <div
-                        onClick={ registerModal.onClose }
+                        onClick={ toggle }
                         className="
                             text-neutral-800
                             cursor-pointer
                             hover:underline
                         "
-                    >Log in</div>
+                    >Create an account</div>
                 </div>
             </div>
         </div>
