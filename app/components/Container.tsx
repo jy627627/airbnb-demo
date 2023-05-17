@@ -9,6 +9,8 @@ interface ContainerProps {
 export const Container: React.FC<ContainerProps> = ({
     children
 }) => {
+
+    // max-w-[2520px]
     return (
         <div
             className="

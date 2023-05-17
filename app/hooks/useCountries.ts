@@ -1,11 +1,12 @@
-import countries from 'world-countries'
 
-const formattedCountries = countries.map(c => ({
-    value: c.cca2,
-    label: c.name.common,
-    flag: c.flag,
-    latlng: c.latlng,
-    region: c.region
+import countries, {Country} from 'world-countries'
+
+const formattedCountries = countries.map(country => ({
+    value: country.cca2,
+    label: country.name.common,
+    flag: country.flag,
+    latlng: country.latlng,
+    region: country.region
 }))
 
 export const useCountries = () => {
