@@ -7,7 +7,11 @@ import {Heading} from "@/app/components/Heading";
 import { categories } from "../navbar/Categories";
 import { CategoryInput } from "@/app/components/inputs/CategoryInput";
 import { CountrySelect } from "@/app/components/inputs/CountrySelect";
+// import { Map } from "../Map"
 import { FieldValues, useForm } from "react-hook-form";
+import dynamic from "next/dynamic";
+import Counter from "@/app/components/inputs/Counter"
+import ImageUpload from "@/app/components/inputs/ImageUpload"
 
 enum STEPS {
     CATEGORY = 0,
@@ -30,9 +34,9 @@ export const RentModal = () => {
         setValue,
         watch,
         formState: {
-            errors
+            errors,
         },
-        reset
+        reset,
     } = useForm<FieldValues>({
         defaultValues: {
             category: '',
@@ -47,8 +51,16 @@ export const RentModal = () => {
         }
     })
 
-    const category = watch('category')
     const location = watch('location')
+    const category = watch('category')
+    const guestCount = watch('guestCount')
+    const roomCount = watch('roomCount')
+    const bathroomCount = watch('bathroomCount')
+    const imageSrc = watch('imageSrc')
+
+    const Map = useMemo(() => dynamic(() => import('../Map'), {
+        ssr: false
+    }), [location])
 
     const setCustomValue = (id: string, value:any) => {
         setValue(id, value, {
@@ -145,6 +157,97 @@ export const RentModal = () => {
                     value={ location }
                     onChange={(value) => setCustomValue('location', value)}
                 />
+                <Map
+                    center={ location?.latlng }
+                />
+            </div>
+        )
+
+        // console.log(bodyContent,'bodyContent')
+    }
+
+    if ( step === STEPS.INFO ) {
+        bodyContent = (
+            <div
+                className="
+                    flex
+                    flex-col
+                    gap-8
+                "
+            >
+                <Heading
+                    title="Share some basics your place"
+                    subtitle="What amenities do you have?"
+                />
+
+                <Counter
+                    title="Guests"
+                    subtitle="How many guests do you allow?"
+                    value={ guestCount }
+                    onChange={ (value) => setCustomValue('guestCount',value)}
+                />
+                <hr/>
+                <Counter
+                    title="Rooms"
+                    subtitle="How many Rooms do you have?"
+                    value={ roomCount }
+                    onChange={ (value) => setCustomValue('roomCount',value)}
+                />
+                <hr/>
+                <Counter
+                    title="Bathrooms"
+                    subtitle="How many Bathrooms do you have?"
+                    value={ bathroomCount }
+                    onChange={ (value) => setCustomValue('bathroomCount',value)}
+                />
+            </div>
+        )
+
+        // console.log(bodyContent,'bodyContent')
+    }
+
+    if ( step === STEPS.IMAGES ) {
+        bodyContent = (
+            <div
+                className="
+                    flex
+                    flex-col
+                    gap-8
+                "
+            >
+                <Heading
+                    title="Add a photo of your place"
+                    subtitle="Show guests what your place looks like!"
+                />
+
+               <ImageUpload
+                    value={ imageSrc }
+                    onChange={(value) => setCustomValue('imageSrc', value)}
+               />
+            </div>
+        )
+
+        // console.log(bodyContent,'bodyContent')
+    }
+
+    if ( step === STEPS.DESCRIPTION ) {
+        bodyContent = (
+            <div
+                className="
+                    flex
+                    flex-col
+                    gap-8
+                "
+            >
+                <Heading
+                    title="Add a photo of your place"
+                    subtitle="Show guests what your place looks like!"
+                />
+
+               <ImageUpload
+                    value={ imageSrc }
+                    onChange={(value) => setCustomValue('imageSrc', value)}
+               />
             </div>
         )
 
