@@ -66,7 +66,7 @@ export default (function ImageUpload({
                         {value && (
                             <div className="absolute inset-0 w-full h-full">
                                 <Image
-                                   alt="Upload"
+                                   alt="House"
                                    fill
                                    style={{ objectFit: 'cover'}}
                                    src={ value }
