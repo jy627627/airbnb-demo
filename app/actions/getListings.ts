@@ -8,7 +8,12 @@ export default async function getListings() {
             }
         })
 
-        return listings
+        const safeListings = listings.map( i =>  ({
+            ...i,
+            createdAt: i.createdAt.toString()
+        }))
+
+        return safeListings
 
     } catch (error:any) {
         throw new Error(error)

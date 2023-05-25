@@ -1,8 +1,5 @@
 'use client'
 
-
-
-
 import {AiOutlineMenu} from "react-icons/ai"
 import { Avatar } from '../Avatar'
 import { MenuItem } from '../navbar/MenuItem'
@@ -12,6 +9,7 @@ import { useLoginModal } from "@/app/hooks/useLoginModal"
 import { useRentModal } from "@/app/hooks/useRentModal";
 import { signOut } from 'next-auth/react'
 import { SafeUser } from "@/app/types";
+import { useRouter } from "next/navigation";
 
 
 interface UserMenuProps {
@@ -22,6 +20,7 @@ interface UserMenuProps {
 export const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
 
     console.log('user',{ currentUser })
+    const router = useRouter()
 
     const registerModal = useRegisterModal()
 
@@ -128,7 +127,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                         {currentUser ? (
                             <>
                                 <MenuItem
-                                    onClick={() => {}}
+                                    onClick={() => router.push('/trips')}
                                     label="My trips"
                                 />
                                 <MenuItem
@@ -136,7 +135,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                                     label="My favorite"
                                 />
                                 <MenuItem
-                                    onClick={() => {} }
+                                    onClick={() => router.push('/reservations') }
                                     label="My reservations"
                                 />
                                 <MenuItem
@@ -168,7 +167,6 @@ export const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                     </div>
                 </div>
             )}
-
         </div>
     )
 }
