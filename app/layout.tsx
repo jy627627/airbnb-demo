@@ -9,6 +9,7 @@ import { LoginModal } from '@/app/components/modals/LoginModal'
 import { RentModal } from "@/app/components/modals/RentModal";
 import { TosterProvider } from "@/app/providers/TosterProvider";
 import getCurrentUser from "@/app/actions/getCurrentUser";
+import {SearchModal} from "@/app/components/modals/SearchModal";
 
 
 export const metadata = {
@@ -30,9 +31,10 @@ export default async function RootLayout({
       <body className={font.className}>
         <ClientOnly>
           <TosterProvider/>
-          <RegisterModal/>
-          <LoginModal/>
+          <SearchModal />
           <RentModal/>
+          <LoginModal/>
+          <RegisterModal/>
           {/*<Modal*/}
           {/*    actionLabel='Submit'*/}
           {/*    title={'hello'}*/}

@@ -4,37 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0ca6924-015c-4855-9ff8-7f01472429c6" name="更改" comment="hasFavorited-function-use-memo">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/actions/getListingById.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/actions/getReservations.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/reservations/[reservationId]/route.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/reservations/route.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/components/inputs/Calendar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/components/listings/ListingCategory.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/components/listings/ListingHead.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/components/listings/ListingInfo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/components/listings/ListingReservation.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/listings/[listingId]/ListingClient.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/listings/[listingId]/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/reservations/ReservationsClient.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/reservations/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/trips/TripsClient.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/trips/page.tsx" afterDir="false" />
+    <list default="true" id="a0ca6924-015c-4855-9ff8-7f01472429c6" name="更改" comment="reservationsPage">
+      <change afterPath="$PROJECT_DIR$/app/api/listings/[listingId]/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/modals/SearchModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/hooks/useSearchModal.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/actions/getListings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/actions/getListings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/favorites/[listingId]/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/favorites/[listingId]/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/HeartButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/HeartButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/listings/ListingCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/listings/ListingCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/navbar/Search.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/navbar/Search.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/navbar/UserMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/navbar/UserMenu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/hooks/useFavorite.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/hooks/useFavorite.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/hooks/useLoginModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/hooks/useLoginModal.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/hooks/useRegisterModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/hooks/useRegisterModal.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/hooks/useRentModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/hooks/useRentModal.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/types/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/properties/PropertiesClient.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/properties/PropertiesClient.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/properties/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/properties/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -73,25 +53,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "E:/React/abing/abing/app/api/reservations/[reservationId]",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "E:\\React\\abing\\abing\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/React/abing/abing/app/api/reservations/[reservationId]&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;E:\\React\\abing\\abing\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\React\abing\abing\app\api\reservations\[reservationId]" />
@@ -150,7 +130,10 @@
       <workItem from="1684808512140" duration="17305000" />
       <workItem from="1684890781339" duration="3710000" />
       <workItem from="1684895083545" duration="15501000" />
-      <workItem from="1684977793320" duration="19668000" />
+      <workItem from="1684977793320" duration="20213000" />
+      <workItem from="1685062913898" duration="31000" />
+      <workItem from="1685323012803" duration="60000" />
+      <workItem from="1685323329561" duration="13897000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1683711592344</created>
@@ -187,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684834548875</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="reservationsPage">
+      <created>1685007360655</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1685007360655</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,6 +202,7 @@
     <MESSAGE value="flag-icon-complete" />
     <MESSAGE value="upload-image" />
     <MESSAGE value="hasFavorited-function-use-memo" />
-    <option name="LAST_COMMIT_MESSAGE" value="hasFavorited-function-use-memo" />
+    <MESSAGE value="reservationsPage" />
+    <option name="LAST_COMMIT_MESSAGE" value="reservationsPage" />
   </component>
 </project>

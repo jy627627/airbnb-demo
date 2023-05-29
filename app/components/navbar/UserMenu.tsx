@@ -19,7 +19,7 @@ interface UserMenuProps {
 
 export const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
 
-    console.log('user',{ currentUser })
+    // console.log('user',{ currentUser })
     const router = useRouter()
 
     const registerModal = useRegisterModal()

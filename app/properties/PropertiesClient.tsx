@@ -1,40 +1,47 @@
 'use client'
 
-import {SafeListing, SafeReservations, SafeUser} from "@/app/types";
-import React, { useCallback, useState } from "react";
-import { Container } from "@/app/components/Container";
-import { Heading } from "@/app/components/Heading";
-import { ListingCard } from "@/app/components/listings/ListingCard";
-import {useRouter} from "next/navigation";
+import { toast } from "react-hot-toast";
 import axios from "axios";
-import toast from "react-hot-toast";
+import React, { useCallback, useState } from "react";
+import { useRouter } from "next/navigation";
 
-interface TripsClientProps {
-    currentUser?: SafeUser | null
-    listings: SafeListing[]
+import { SafeListing, SafeUser } from "@/app/types";
+
+import { Heading } from "@/app/components/Heading";
+import { Container } from "@/app/components/Container";
+import { ListingCard } from "@/app/components/listings/ListingCard";
+
+interface PropertiesClientProps {
+    listings: SafeListing[],
+    currentUser?: SafeUser | null,
 }
-export const PropertiesClient:React.FC<TripsClientProps> = ({
-    currentUser,
-    listings
-}) => {
 
-    const router = useRouter()
+export const PropertiesClient: React.FC<PropertiesClientProps> = ({
+    listings,
+    currentUser
+}) => {
+    const router = useRouter();
     const [deletingId, setDeletingId] = useState('')
 
-    const onCancel = useCallback(
+    const onDelete = useCallback(
         (id: string) => {
             setDeletingId(id)
-            axios.delete(`/api/listings/${id}`).then(() => {
-                toast.success('Listing deleted!')
-                router.refresh()
-            }).catch((err) => {
-                toast.error( err?.response?.data?.error )
-            }).finally(()=> {
-                setDeletingId('')
-            })
+
+            axios.delete(`/api/listings/${id}`)
+                .then(() => {
+                    toast.success('Listing deleted')
+                    router.refresh()
+                })
+                .catch((error) => {
+                    toast.error(error?.response?.data?.error)
+                })
+                .finally(() => {
+                    setDeletingId('')
+                })
         },
         [router]
     )
+
 
     return (
         <Container>
@@ -57,13 +64,13 @@ export const PropertiesClient:React.FC<TripsClientProps> = ({
             >
                 {listings.map((listing: any) => (
                     <ListingCard
-                        key={ listing.id }
-                        data={ listing.listing }
-                        actionId={ listing.id }
-                        onAction={ listing }
-                        disabled={ deletingId === listing.id }
+                        key={listing.id}
+                        data={listing}
+                        actionId={listing.id}
+                        onAction={onDelete}
+                        disabled={deletingId === listing.id}
                         actionLabel="Delete property"
-                        currentUser={ currentUser }
+                        currentUser={currentUser}
                     />
                 ))}
             </div>
