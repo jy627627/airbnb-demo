@@ -2,9 +2,54 @@
 
 import { BiSearch } from 'react-icons/bi'
 import { useSearchModal } from "@/app/hooks/useSearchModal";
+import { useSearchParams } from "next/navigation";
+import { useCountries } from "@/app/hooks/useCountries";
+import { useMemo } from "react";
+import {differenceInDays} from "date-fns";
 export const Search = () => {
 
     const searchModal = useSearchModal()
+    const params = useSearchParams()
+    const { getByValue } = useCountries()
+
+    const locationValue = params?.get('locationValue')
+    const startDate = params?.get('startDate')
+    const endDate = params?.get('endDate')
+    const guestCount = params?.get('guestCount')
+
+    const locationLabel = useMemo(
+        () => {
+            if (locationValue) {
+                return getByValue(locationValue as string)?.label
+            }
+            return 'Anywhere'
+        },
+        [getByValue, locationValue]
+    )
+
+    const durationLabel = useMemo(
+        () => {
+            if (startDate && endDate) {
+                const start = new Date(startDate as string)
+                const end = new Date(endDate as string)
+                let diff = differenceInDays(end, start)
+
+                if (diff === 0) return diff = 1
+
+                return `${diff} Days`
+            }
+            return 'Anywhere'
+        },
+        [startDate, endDate]
+    )
+
+    const guestLabel = useMemo(
+        () => {
+            if (guestCount) return `${guestCount} Guests`
+            return 'Anywhere'
+        },
+        [guestCount]
+    )
 
     return (
         <div
@@ -36,7 +81,7 @@ export const Search = () => {
                         px-6
                     "
                 >
-                    Anywhere
+                    { locationLabel }
                 </div>
                 <div
                     className="
@@ -50,7 +95,7 @@ export const Search = () => {
                         text-center
                     "
                 >
-                    Any week
+                    { durationLabel }
                 </div>
                 <div
                     className="
@@ -70,7 +115,7 @@ export const Search = () => {
                             sm:block
                         "
                     >
-                        Add Guests
+                        { guestLabel }
                     </div>
                     <div
                         className="

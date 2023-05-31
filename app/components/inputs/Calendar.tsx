@@ -9,7 +9,7 @@ import 'react-date-range/dist/theme/default.css';
 
 interface CalendarProps {
     value: Range
-    disabledDates: Date[]
+    disabledDates?: Date[]
     onChange: (value: RangeKeyDict) => void
 }
 export const Calendar:React.FC<CalendarProps> = ({
